@@ -6,6 +6,9 @@ sap.ui.define([
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
+     * @param {typeof sap.ui.model.json.JSONModel} JSONModel
+     * @param {typeof sap.ui.model.Filter} Filter
+     * @param {typeof sap.ui.model.FilterOperator} FilterOperator
      */
     function (Controller, JSONModel, Filter, FilterOperator) {
         "use strict";
@@ -69,6 +72,14 @@ sap.ui.define([
             oModel.setProperty("/CountryKey", "");
         }
 
+        function showPostalCode(oEvent) {
+            var itemPressed = oEvent.getSource();
+            var oContext = itemPressed.getBindingContext();
+            var objectContext = oContext.getObject();
+
+            sap.m.MessageToast.show(objectContext.PostalCode);
+        }
+
         function myCheck() {
             var inputEmployee = this.byId("inputEmployee");
             var valueEmployee = inputEmployee.getValue();
@@ -86,12 +97,10 @@ sap.ui.define([
         const Main = Controller.extend("logaligroup.employees.controller.MainView", {});
 
         Main.prototype.onValidate = myCheck
-
         Main.prototype.onInit = onInit;
-
         Main.prototype.onFilter = onFilter;
-
         Main.prototype.onClearFilter = onClearFilter;
+        Main.prototype.showPostalCode = showPostalCode;
 
         return Main;
     });
