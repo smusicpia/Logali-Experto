@@ -72,7 +72,11 @@
       "": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {}
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
       }
     },
     "resources": {
@@ -112,7 +116,7 @@
       }
     },
     "rootView": {
-      "viewName": "logaligroup.employees.view.App",
+      "viewName": "logaligroup.employees.view.MainView",
       "type": "XML",
       "async": true,
       "id": "App"
