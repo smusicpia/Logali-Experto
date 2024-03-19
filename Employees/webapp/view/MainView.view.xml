@@ -1,4 +1,4 @@
-<mvc:View controllerName="logaligroup.employees.controller.MainView"
+<mvc:View controllerName="logaligroup.Employees.controller.MainView"
           xmlns:mvc="sap.ui.core.mvc"
           xmlns:html="http://www.w3.org/1999/xhtml"
           displayBlock="true"
@@ -13,61 +13,20 @@
                             <Label id="labelEmployee" text="{i18n>labelEmployee}" class="sapUiSmallMargin" labelFor="inputEmployee" />
                             <Input id="inputEmployee" value="{jsonCountries>/EmployeeId}" maxLength="6" width="200px" class="sapUiSmallMarginEnd" />
                             <Label id="labelCountry" text="{i18n>labelCountry}" class="sapUiSmallMargin" labelFor="slCountry" visible="true" />
-                            <Select id="slCountry" selectedKey="{jsonCountries>/CountryKey}" forceSelection="false" items="{jsonCountries>/ListCountry}" visible="true">
+                            <Select id="slCountry" selectedKey="{jsonCountries>/CountryKey}"
+                                                   forceSelection="false"
+                                                   items="{jsonCountries>/ListCountry}"
+                                                   visible="true">
                                 <items>
                                     <core:Item key="{jsonCountries>Key}" text="{jsonCountries>Text}"/>
                                 </items>
                             </Select>
-                            <Button id="btnFilter" text="{i18n>btnFilter}" icon="sap-icon://search" press="onFilter" class="sapUiSmallMarginEnd" />
-                            <Button id="btnClearFilter" text="{i18n>btnClearFilter}" icon="sap-icon://clear-filter" press="onClearFilter" class="sapUiSmallMarginEnd" />
+                            <Button id="btnFilter" text="{i18n>btnFilter}" icon="sap-icon://search"
+                                    press="onFilter" class="sapUiSmallMarginEnd" />
+                            <Button id="btnClearFilter" text="{i18n>btnClearFilter}" icon="sap-icon://clear-filter"
+                                    press="onClearFilter" class="sapUiSmallMarginEnd" />
                         </HBox>
-                        <HBox>
-                            <Panel>
-                                <Button id="btnShowCity" text="{i18n>showCity}" visible="{jsonModelConfig>/visibleBtnShowCity}" press="onShowCity"/>
-                                <Button id="btnHideCity" text="{i18n>hideCity}" visible="{jsonModelConfig>/visibleBtnHideCity}" press="onHideCity"/>
-                                <Table id="tableEmployee" items="{jsonEmployees>/}">
-                                    <columns>
-                                        <Column visible="{jsonModelConfig>/visibleID}">
-                                            <header>
-                                                <Label text="{i18n>tableId}"/>
-                                            </header>
-                                        </Column>
-                                    </columns>
-                                    <columns>
-                                        <Column visible="{jsonModelConfig>/visibleName}">
-                                            <header>
-                                                <Label text="{i18n>tableName}"/>
-                                            </header>
-                                        </Column>
-                                    </columns>
-                                    <columns>
-                                        <Column visible="{jsonModelConfig>/visibleCountry}">
-                                            <header>
-                                                <Label text="{i18n>tableCountry}"/>
-                                            </header>
-                                        </Column>
-                                    </columns>
-                                    <columns>
-                                        <Column visible="{jsonModelConfig>/visibleCity}">
-                                            <header>
-                                                <Label text="{i18n>tableCity}"/>
-                                            </header>
-                                        </Column>
-                                    </columns>
-                                    <items>
-                                        <ColumnListItem type="Active" press="showOrders">
-                                            <cells>
-                                                <Label text="{jsonEmployees>EmployeeID}"/>
-                                                <Label text="{jsonEmployees>LastName}, {jsonEmployees>FirstName}"/>
-                                                <Label text="{jsonEmployees>Country}"/>
-                                                <Label text="{jsonEmployees>City}"/>
-                                            </cells>
-                                        </ColumnListItem>
-                                    </items>
-                                </Table>
-                                <HBox id="ordersTable"></HBox>
-                            </Panel>
-                        </HBox>
+                        <core:Fragment fragmentName="logaligroup.Employees.fragment.TableEmployee" type="XML" />
                     </content>
                 </Page>
             </pages>
