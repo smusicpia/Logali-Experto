@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: logaligroup.employees
+  name: logaligroup.Employees
 type: application
 server:
   customMiddleware:

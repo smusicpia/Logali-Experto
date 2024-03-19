@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "logaligroup.employees",
+    "id": "logaligroup.Employees",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -66,7 +66,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "logaligroup.employees.i18n.i18n"
+          "bundleName": "logaligroup.Employees.i18n.i18n"
         }
       },
       "": {
@@ -91,7 +91,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "logaligroup.employees.view",
+        "viewPath": "logaligroup.Employees.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -116,7 +116,7 @@
       }
     },
     "rootView": {
-      "viewName": "logaligroup.employees.view.MainView",
+      "viewName": "logaligroup.Employees.view.MainView",
       "type": "XML",
       "async": true,
       "id": "App"
