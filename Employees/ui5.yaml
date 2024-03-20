@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: logaligroup.Employees
+  name: logaligroup.employees
 type: application
 server:
   customMiddleware:
@@ -17,7 +17,7 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /V2
-            url: https://services.odata.org
+            url: https://services.odata.org/
             destination: Northwind
     - name: fiori-tools-appreload
       afterMiddleware: compression

@@ -3,13 +3,13 @@
     xmlns:core="sap.ui.core">
     <Panel>
         <Button id="btnShowCity"
-            text="{i18n>showCity}"
-            visible="{jsonModelConfig>/visibleBtnShowCity}"
-            press="onShowCity"/>
+                text="{i18n>showCity}"
+                visible="{jsonModelConfig>/visibleBtnShowCity}"
+                press="onShowCity"/>
         <Button id="btnHideCity"
-            text="{i18n>hideCity}"
-            visible="{jsonModelConfig>/visibleBtnHideCity}"
-            press="onHideCity"/>
+                text="{i18n>hideCity}"
+                visible="{jsonModelConfig>/visibleBtnHideCity}"
+                press="onHideCity"/>
         <Table id="tableEmployee"
             items="{jsonEmployees>/}">
             <columns>
@@ -40,7 +40,7 @@
                 </Column>
             </columns>
             <items>
-                <ColumnListItem>
+                <ColumnListItem type="Navigation" press="showEmployee">
                     <cells>
                         <Label text="{jsonEmployees>EmployeeID}" />
                         <Label text="{jsonEmployees>LastName}, {jsonEmployees>FirstName}" />

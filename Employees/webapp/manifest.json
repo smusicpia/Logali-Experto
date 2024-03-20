@@ -98,28 +98,35 @@
       },
       "routes": [
         {
-          "name": "RouteMainView",
+          "name": "RouteMain",
           "pattern": ":?query:",
           "target": [
-            "TargetMainView"
+            "TargetMain"
           ]
         }
       ],
       "targets": {
-        "TargetMainView": {
+        "TargetMain": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "MainView",
-          "viewName": "MainView"
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+        "TargetMasterEmployee": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MasterEmployee",
+          "viewName": "MasterEmployee"
         }
       }
     },
     "rootView": {
-      "viewName": "logaligroup.Employees.view.MainView",
+      "viewName": "logaligroup.Employees.view.Main",
       "type": "XML",
       "async": true,
-      "id": "App"
+      "id": "Main"
     }
   }
 }
