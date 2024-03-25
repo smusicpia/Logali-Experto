@@ -1,6 +1,7 @@
 <mvc:View controllerName="logaligroup.Employees.controller.EmployeeDetails"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
 	displayBlock="true">
     <Page title="{i18n>employeeDetails}">
 		<Panel>
@@ -56,6 +57,9 @@
 				</Toolbar>
 			</headerToolbar>
 			<Panel id="tableIncidence" class="sapUiNoContentPadding" backgroundDesign="Transparent"></Panel>
+		</Panel>
+		<Panel class="sapUiSizeCompact" backgroundDesign="Transparent" headerText="{i18n>orders}">
+			<c:Fragment fragmentName="logaligroup.Employees.fragment.TableOrders" type="XML"/>
 		</Panel>
     </Page>
 </mvc:View>
