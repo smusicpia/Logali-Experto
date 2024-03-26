@@ -1,16 +1,15 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "logaligroup/Employees/controller/Base.controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
 ],
     /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
      * @param {typeof sap.ui.model.Filter} Filter
      * @param {typeof sap.ui.model.FilterOperator} FilterOperator
      */
-    function (Controller, JSONModel, Filter, FilterOperator) {
+    function (Base, JSONModel, Filter, FilterOperator) {
         "use strict";
 
         function onInit() {
@@ -104,15 +103,15 @@ sap.ui.define([
             this._bus.publish("flexible", "showEmployee", path);
         }
 
-        function toOrderDetails(oEvent) {
+        /*  function toOrderDetails(oEvent) {
             var orderID = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("RouteOrderDetails", {
                 OrderID : orderID
             });
-        }
+        } */
  
-        const Main = Controller.extend("logaligroup.Employees.controller.MasterEmployee", {});
+        const Main = Base.extend("logaligroup.Employees.controller.MasterEmployee", {});
 
         //Main.prototype.onValidate = myCheck
         Main.prototype.onInit = onInit;
@@ -124,7 +123,7 @@ sap.ui.define([
         Main.prototype.showOrders = showOrders;
         Main.prototype.onCloseOrders = onCloseOrders;
         Main.prototype.showEmployee = showEmployee;
-        Main.prototype.toOrderDetails = toOrderDetails;
+        //Main.prototype.toOrderDetails = toOrderDetails;
 
         return Main;
     });
