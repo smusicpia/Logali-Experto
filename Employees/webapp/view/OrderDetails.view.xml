@@ -4,6 +4,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
     xmlns:sc="logaligroup.Employees.control"
+    xmlns:upload="sap.m.upload"
     displayBlock="true">
     <Page>
         <customHeader>
@@ -55,10 +56,34 @@
                         <Button text="{i18n>clear}" press="onClearSignature" class="sapUiTinyMarginBegin"></Button>
                     </FlexBox>
                 </l:Grid>
+                <upload:UploadSet id="uploadSet"
+                                  maxFileNameLength="55"
+                                  maxFileSize="10"
+                                  multiple="true"
+                                  sameFilenameAllowed="true"
+                                  instantUpload="true"
+                                  uploadUrl="/sap/opu/odata/sap/YSAPUI5_SRV_01/FilesSet/"
+                                  beforeUploadStarts="onFileBeforeUpload"
+                                  uploadCompleted="onFileUploadComplete"
+                                  afterItemRemoved="onFileDeleted">
+                    <upload:toolbar>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Button icon="sap-icon://download" press="onDownloadFile"/>
+                            <upload:UploadSetToolbarPlaceholder />
+                        </OverflowToolbar>
+                    </upload:toolbar>
+                </upload:UploadSet>
             </Panel>
             <Panel headerText="{i18n>orderProducts}">
                 <List items="{path:'odataNorthwind>Order_Details', parameters:{expand:'Product'}, factory:'.factoryOrderDetails'}"/>
             </Panel>
         </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button text="{i18n>saveSignature}" press="onSaveSignature"></Button>
+            </Toolbar>
+        </footer>
     </Page>
 </mvc:View>

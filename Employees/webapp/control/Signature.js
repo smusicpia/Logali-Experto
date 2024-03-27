@@ -1,6 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/Control"
-], function(Control) {
+],
+    /**
+     * @param {typeof sap.ui.core.Control} Control 
+     * @returns 
+     */
+    function(Control) {
 	"use strict";
 
 	return Control.extend("logaligroup.Employees.control.Signature", {
@@ -43,13 +48,37 @@ sap.ui.define([
             var canvas = document.querySelector("canvas");
             try {
                 this.signaturePad = new SignaturePad(canvas);
+                this.signaturePad.clear();
+                canvas.addEventListener("mousedown", function() {
+                    //this.signaturePad.on();
+                }.bind(this));
             } catch (error) {
                 console.error(error);
             }
         },
 
         clear: function () {
-            this.signaturePad.clear();
+            try {
+                this.signaturePad.clear();
+            } catch (error) {
+                
+            }
+        },
+
+        getSignature: function() {
+            return this.signaturePad.toDataURL();
+        },
+
+        setSignature: function(signature) {
+            this.signaturePad.fromDataURL(signature);
+        },
+
+        setOn: function() {
+            this.signaturePad.On();
+        },
+
+        setOff: function() {
+            this.signaturePad.off();
         }
 	});
 });
